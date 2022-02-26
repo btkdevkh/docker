@@ -1,0 +1,47 @@
+// build docker image
+docker build -t <imageName> .
+
+// build docker image with specific version
+docker build -t <imageName>:<TAG> .
+
+// see docker images
+docker images 
+
+// Run docker image to create a container with port mapping without blocking the terminal
+docker run --name <containerName> -p 8000:8000 -d <imageName>
+
+// Run docker with the specific version
+docker run --name <containerName> -p 8000:8000 -d <imageName>:<TAG>
+
+// Show docker running process containers
+docker ps
+
+// Show all docker containers
+docker ps -a
+
+// Stop docker container
+docker stop <containerName>
+
+// Start docker container already exists (-d detache mode by default)
+docker start <containerName>
+
+// Remove docker image
+docker image rm <imageName> -f
+
+// Remove a container
+docker container rm <containerName>
+
+// Remove all in docker(images, containers, volumes)
+docker system prune -a
+
+// volumes simple example
+docker run --name myapp_c_nodemon -p 8000:8000 --rm -v C:\Users\Amcjk\Documents\Btkdevkh\DEVS\docker-initiation:/app -v /app/node_modules myapp:nodemon
+
+// Make images for each services and run the containers for them
+docker-compose up
+
+// Stop & delete the container
+docker-compose down
+
+// Stop & delete (image, container, volume)
+docker-compose down --rmi all -v
